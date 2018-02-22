@@ -22,18 +22,18 @@ Strains was the one sequenced by Nolwen (A8F - A1492R) and Damien (A958R)
 The majority of strains were sequenced with the 4 primers, but it was not the case for some of them.
 The table bellow summarize the differences between these 4 sequencing runs
 
-A8F | A1492R | A958R | A71R | Remark
-----|--------|-------|------|-------
-AMTc06 | AMTc06 | NA | NA | Not present in UBOCC
-NA | NA | AMTc57 | AMTc57 | 
-NA | NA | AMTc70 | AMTc70 | 
-AMTc101 | AMTc101 | NA | NA |
-IRI01c | IRI01c | NA | NA |
-NA | NA | IRI09c | IRI09c |
-IRI19c | IRI19c | NA | NA |
-NA | NA | IRI21c | IRI21c |
-IRI30c | IRI30c | NA | NA |
-NA | NA | IRI31b | IRI31b |
+Strain |A8F | A1492R | A958R | A71R | Remark
+-------|----|--------|-------|------|-------
+AMTc06 | sequenced | sequenced | NA | NA | Not present in UBOCC
+AMTc57 |NA | NA | sequenced | sequenced| 
+AMTc70 |NA | NA | sequenced | sequenced | 
+AMTc101 | sequenced | sequenced | NA | NA |
+IRI01c | sequenced | sequenced | NA | NA |
+IRI09c |NA | NA | sequenced | sequenced |
+IRI19c | sequenced | sequenced | NA | NA |
+IRI21c |NA | NA | sequenced | sequenced |
+IRI30c | sequenced | sequenced | NA | NA |
+IRI31b |NA | NA | sequenced | sequenced |
 
 #### June 2016
 Here, after the Amaia's intership (April-June 2015), 219 \(2 \* 96 + 27\) strains were sequenced with A4F, A1492R and A71R primers.
