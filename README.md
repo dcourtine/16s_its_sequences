@@ -25,15 +25,15 @@ The table bellow summarize the differences between these 4 sequencing runs
 A8F | A1492R | A958R | A71R | Remark
 ----|--------|-------|------|-------
 AMTc06 | AMTc06 | | | Not present in UBOCC
- | | AMTc57 | AMTc57 | 
- | | AMTc70 | AMTc70 | 
+  | | AMTc57 | AMTc57 | 
+  | | AMTc70 | AMTc70 | 
 AMTc101 | AMTc101 | | |
 IRI01c | IRI01c | | |
- | | IRI09c | IRI09c |
+  | | IRI09c | IRI09c |
 IRI19c | IRI19c | | |
- | | IRI21c | IRI21c |
+  | | IRI21c | IRI21c |
  IRI30c | IRI30c | | |
- | | IRI31b | IRI31b |
+  | | IRI31b | IRI31b |
 
 
 
