@@ -25,22 +25,29 @@ The table bellow summarize the differences between these 4 sequencing runs
 A8F | A1492R | A958R | A71R | Remark
 ----|--------|-------|------|-------
 AMTc06 | AMTc06 | NA | NA | Not present in UBOCC
- NA | NA | AMTc57 | AMTc57 | 
- NA | NA | AMTc70 | AMTc70 | 
+NA | NA | AMTc57 | AMTc57 | 
+NA | NA | AMTc70 | AMTc70 | 
 AMTc101 | AMTc101 | NA | NA |
 IRI01c | IRI01c | NA | NA |
- NA | NA | IRI09c | IRI09c |
+NA | NA | IRI09c | IRI09c |
 IRI19c | IRI19c | NA | NA |
-  NA | NA | IRI21c | IRI21c |
- IRI30c | IRI30c | NA | NA |
- NA | NA | IRI31b | IRI31b |
+NA | NA | IRI21c | IRI21c |
+IRI30c | IRI30c | NA | NA |
+NA | NA | IRI31b | IRI31b |
 
 #### June 2016
+Here, after the Amaia's intership (April-June 2015), 219 \(2 \* 96 + 27\) strains were sequenced with A4F, A1492R and A71R primers.
+The sequencing plates are:
+	*16S_ITS_1
+	*16S_ITS_2
+	*16S_ITS_3
 
+Some failure appeared for the A4F and A1492R primers.
+Many sequences failed with the A71R primer.
 
 #### July 2016
-
-
+Here, it is the re-sequencing of the failed runs we encountered in June 2016.
+Two primers were modified: A4F by A4F\_Thermocc, and A71R by A71R\_MOD
 
 ## Primer list
 * A4F: _5'-TCC GGT TGA TCC TGC CRC-3'_
