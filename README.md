@@ -2,11 +2,11 @@
 This directory summarize the framework used to sequence, check and assemble 16SrRNA-ITS sequences.
 Different assembly where performed. One for each seqeuncing batch.
 
-1. [Description of the data used](# Description of the data used)
-2. [Primer list](# Primer list)
-3. [Assembly strategy](# Assembly strategy)
+1. [Description of the data used](#description)
+2. [Primer list](#primer)
+3. [Assembly strategy](#assembly)
 
-## Description of the data used
+## Description of the data used <a name="description"></a>
 ### List of the different sequencing invoices
 0. Nolwen's data
 1. December 2014
@@ -80,7 +80,7 @@ A6S\_ITS\_3 | \- | \- | 25 |
 
 PATH to data: `data/2015/3_primers_27-07-2015/COL15-1HVS`
 
-## Primer list
+## Primer list<a name="primer"></a>
 * A4F: _5'-TCC GGT TGA TCC TGC CRC-3'_
 * A4F\_Thermocc: _5'-TCC GGT TGA TCC TGC CGC-3'_
 * A8F: _5'-TCC GGT TGA TCC TGC C-3'_
@@ -89,7 +89,7 @@ PATH to data: `data/2015/3_primers_27-07-2015/COL15-1HVS`
 * A71R: _5'-TCG GYG CCC GAG CCG AGC CAC CC-3'_
 * A71R\_MOD: _5'-TCG GYG CCC GAG CCG AGC CA-3'_
 
-## Assembly strategy
+## Assembly strategy <a name="assembly"></a>
 
 
 
