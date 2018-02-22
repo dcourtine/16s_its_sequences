@@ -1,0 +1,16 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+######################
+# My files: data / etc.
+assemblies/01_first_batch_of_seq/*MultiFasta*
+assemblies/01_first_batch_of_seq/*MultiFasta*
+assemblies/01_first_batch_of_seq/old_files_deprecated/
+assemblies/01_first_batch_of_seq/seq_to_align/*.*

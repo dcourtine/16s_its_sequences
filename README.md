@@ -149,11 +149,11 @@ Then the script check that a strain is present in the four primer files.
 Then it read `Multifasta_*.seq`, extract the "good" reads \(= strains with 4 reads\),
 and write then out in `MultiFasta_*.seq.final`.
 
-**Note**: in the four files `MultiFasta_*.seq.final`, reads are present in the same order.
+**Note**: In the four files `MultiFasta_*.seq.final`, reads are present in the same order.
 
-**Note 2**: the script had a small bug, that duplicated the AMTC10 sequence.
+**Note 2:** The script had a small bug, that duplicated the AMTC10 sequence.
 
-I fixed it in this current version.
+**Note 3:** I fixed it in this current version.
 
 6. Trimm sequences + Reverse complement
 
@@ -163,7 +163,7 @@ This step is done with a Perl and a Bash script.
 First, the script `trimm_and_RC_seq.sh` take `*.seq.final` and trim each sequences between 2 positions.
 To modify these positions, just do it in the `trimm_and_RC_seq` script.
 The output is a new fasta file with a `trimm<upper_threshold>` extention.
-After, the script **Reverse and Completent** all reads present in `R.seq.final.trimm<upper_threshold>`
+After, the script **reverse and completent** all reads present in `R.seq.final.trimm<upper_threshold>`
 
 **Note:** This step is done with `revseq`, a tool from the [EMBOSS:6.5.7.0 package](http://emboss.sourceforge.net/).
 
@@ -173,20 +173,19 @@ The output of this tool is new fasta file: `trimm<upper_threshold.RC>`, with 60 
 
 First, create a new directory: `mkdir seq_to_align`
 Then run the Perl script `perl create_seq_to_align.pl <upper_threshold>`
-
 **Be carreful to the infile names used within this Perl script.**
 
 8. Read alignment
 
 This section required the file `16S-ITS-thermococcales-publies.txt`, present in the working dir.
-It is a regular Fasta file containing the 16SrRNA-ITS sequences of 11 *Thermococcus*,
+It is a regular Fasta file containing the 16SrRNA-ITS sequences of 10 *Thermococcus*,
 extracted from public complete genomes, and the *tRNA-Ala* from *Thermococcus kodakaraensis*.
-
+(I removed the *Thermococcus barophilus* sequence.)
 Here, the tool [Muscle v3.8.31](http://www.drive5.com/muscle/) is employed to align reads
-with the help of the 12 *Thermococcus* sequences.
+with the help of the 11 *Thermococcus* sequences.
 
 To run the script: `bash align.sh`. 
-**Please CHECK all dir & file paths before running the script.**
+**Please CHECK all dirs & files paths before running the script.**
 The script make a copy of the alignement as `seq_to_align/<strainID>.complete.msf.save`
 
 
