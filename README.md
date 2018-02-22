@@ -2,6 +2,10 @@
 This directory summarize the framework used to sequence, check and assemble 16SrRNA-ITS sequences.
 Different assembly where performed. One for each seqeuncing batch.
 
+1. [Description of the data used](# Description of the data used)
+2. [Primer list](# Primer list)
+3. [Assembly strategy](# Assembly strategy)
+
 ## Description of the data used
 ### List of the different sequencing invoices
 0. Nolwen's data
@@ -10,7 +14,7 @@ Different assembly where performed. One for each seqeuncing batch.
 3. June 2015
 4. July 2015
 
-**Note: For each invoice, _DeliveryForm_ and _productionSheet_ are present in a directory `documents` next to the raw data.** 
+**Note: For each invoice, _DeliveryForm_ and _productionSheet_ are present in a directory** `documents` **next to the raw data.** 
 
 #### Nolwen's data
 I recovered only the sequences provided by Beckman Coulter Genomics, in Fasta format.
@@ -84,5 +88,8 @@ PATH to data: `data/2015/3_primers_27-07-2015/COL15-1HVS`
 * A1492R: _5'-GGC TAC CTT GTT ACG ACT T-3'_
 * A71R: _5'-TCG GYG CCC GAG CCG AGC CAC CC-3'_
 * A71R\_MOD: _5'-TCG GYG CCC GAG CCG AGC CA-3'_
+
+## Assembly strategy
+
 
 
