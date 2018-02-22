@@ -95,6 +95,7 @@ PATH to data: `data/2015/3_primers_27-07-2015/COL15-1HVS`
 Here I will present the the assembly of the strains sequenced by Nowlven and the my 2 additionnal sequencing runs.
 
 1. For each run, we need the files `MultiFasta_*.seq`.
+
 And copy them in the working directory:
 ```bash
 cd assemblies/01_first_batch_of_seq/
@@ -104,14 +105,16 @@ cp ../../data/2015/A71R_13-03-2015/MultiFasta_150318.seq MultiFasta_A71R.seq
 
 cp MultiFasta_A8F.seq MultiFasta_A1492R.seq
 ```
-With a text editor, keep A8F sequences in `MultiFasta_A8F.seq` file and keep A1492R in `MultiFasta_A1492R.seq` file.
+With a text editor, keep A8F reads in `MultiFasta_A8F.seq` file and keep A1492R in `MultiFasta_A1492R.seq` file.
 
 
 2. **Important, ensure that all strains have the same name**.
+
 For example: `AMTC-01_A71R_1` *vs.* `AMTC01_A8F_1` *vs.* `AMTC_01_A958R_1`.
 Here I kept the annotation `AMTC01_`. It is important to use `_` between strain and primer IDs. 
 
 3. Recover the name of each strain in the 4 files
+
 ```bash
 for file in Multifasta*
 do
@@ -119,6 +122,7 @@ do
 done
 ```
 4. Recover a simplify version of each strain name
+
 ```bash
 for file in grep.Multifasta*
 do
@@ -138,6 +142,7 @@ After, in `simplify.grep.MultiFasta_A8F.seq`
 >AMTC02
 ```
 5. Compare the 4 primer files
+
 The aim at this step is to find strains that were sequenced with the 4 primers.
 If a seqeucing failed for one or more primer, the strain is discarded.
 
@@ -146,11 +151,15 @@ It read files present in `ls simplify.*` --> it used to be A1492R, then A71R, th
 Then the script check that a strain is present in the four primer files.
 Then it read `Multifasta_*.seq`, extract the "good" reads \(= strains with 4 reads\),
 and write then out in `MultiFasta_*.seq.final`.
+
 **Note**: in the four files `MultiFasta_*.seq.final`, reads are present in the same order.
+
 **Note 2**: the script had a small bug, that diplicated the AMTC10 sequence.
+
 I fixed it in this current version.
 
 6.Trimm sequences + Reverse complement
+
 RC has to be applied only on *A1492R*, *A958R* and *A71R* reads.
 
 This step is done with a Perl and a Bash script.
@@ -158,16 +167,20 @@ First, the script `trimm_and_RC_seq.sh` take `*.seq.final` and trim each sequenc
 To modify these positions, just do it in the `trimm_and_RC_seq` script.
 The output is a new fasta file with a `trimm<upper_threshold>` extention.
 After, the script **Reverse and Completent** all reads present in `R.seq.final.trimm<upper_threshold>`
+
 **Note:** This step is done with `revseq`, a tool from the [EMBOSS:6.5.7.0 package](http://emboss.sourceforge.net/).
 
 The output of this tool is new fasta file: `trimm<upper_threshold.RC>`, with 60 nuccleotides displayed per line.
 
 7. Group all reads belonging to a strain in a single file
+
 First, create a new directory: `mkdir seq_to_align`
 Then run the Perl script `perl create_seq_to_align.pl <upper_threshold>`
+
 **Be carreful to the infile names used within this Perl script.**
 
 8. Read alignment
+
 This section required the file `16S-ITS-thermococcales-publies.txt`, present in the working dir.
 It is a regular Fasta file containing the 16SrRNA-ITS sequences of 11 *Thermococcus*,
 extracted from public complete genomes, and the *tRNA-Ala* from *Thermococcus kodakaraensis*.
