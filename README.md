@@ -16,7 +16,28 @@ Due to assembly failure with those 2 runs, I used a new sequencing run with the 
 
 #### March 2016
 This sequencing run dealt with 96 strains and the A71R primer.
-Strains was the one sequenced 
+Strains was the one sequenced by Nolwen (A8F - A1492R) and Damien (A958R)
+
+##### Note about these data (December 2015 / March 2016)
+The majority of strains were sequenced with the 4 primers, but it was not the case for some of them.
+The table bellow summarize the differences between these 4 sequencing runs
+
+Nolwen | Damien | Remark
+------------------------
+A8F | A1492R | A958R | A71R
+---------------------------
+AMTc06 | AMTc06 | | | Not present in UBOCC
+ | | AMTc57 | AMTc57 | 
+ | | AMTc70 | AMTc70 | 
+AMTc101 | AMTc101 | | |
+IRI01c | IRI01c | | |
+ | | IRI09c | IRI09c |
+IRI19c | IRI19c | | |
+ | | IRI21c | IRI21c |
+ IRI30c | IRI30c | | |
+ | | IRI31b | IRI31b |
+
+
 
 #### June 2016
 
