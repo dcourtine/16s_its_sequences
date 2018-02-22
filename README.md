@@ -22,10 +22,8 @@ Strains was the one sequenced by Nolwen (A8F - A1492R) and Damien (A958R)
 The majority of strains were sequenced with the 4 primers, but it was not the case for some of them.
 The table bellow summarize the differences between these 4 sequencing runs
 
-Nolwen | Damien | Remark
-------------------------
-A8F | A1492R | A958R | A71R
----------------------------
+A8F | A1492R | A958R | A71R | Remark
+----|--------|-------|------|-------
 AMTc06 | AMTc06 | | | Not present in UBOCC
  | | AMTc57 | AMTc57 | 
  | | AMTc70 | AMTc70 | 
