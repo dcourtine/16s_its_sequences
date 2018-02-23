@@ -5,7 +5,7 @@ Different assembly where performed. One for each seqeuncing batch.
 ## Table of content
 1. [Description of the data used](#description)
 2. [Primer list](#primer)
-3. [Assembly strategy](#assembly)
+3. [Assembly strategies](#assembly)
 	1. [First batch of strains](#batch1)
 	2. [Second batch of strains](#batch2)
 
@@ -67,7 +67,7 @@ Many sequences failed with the A71R primer.
 
 PATH to data: `data/2015/3_primers_23-06-2015_stage_Amaia/16S_ITS_?`
 
-#### July 2016
+#### July 2015
 
 Here, it is the re-sequencing of the runs that failed in June 2016.
 I did a test on 8 strains with the primer A71R\_MOD,  present in `data/2015/3_primers_27-07-2015/test-primer-A71R-modifiee`
@@ -92,7 +92,7 @@ PATH to data: `data/2015/3_primers_27-07-2015/COL15-1HVS`
 * A71R: _5'-TCG GYG CCC GAG CCG AGC CAC CC-3'_
 * A71R\_MOD: _5'-TCG GYG CCC GAG CCG AGC CA-3'_
 
-## Assembly strategy <a name="assembly"></a>
+## Assembly strategies <a name="assembly"></a>
 ### First batch of strains <a name="batch1"></a>
 Here I will present the the assembly of the strains sequenced by Nowlven and the my 2 additionnal sequencing runs.
 
@@ -193,23 +193,23 @@ The script make a copy of the alignement as `seq_to_align/<strainID>.complete.ms
 9. Quality check
 
 For this step, the principle is simple:
-	* Open the file `<strain>.complete.msf` in a sequence browser like [Seaview](http://doua.prabi.fr/software/seaview).
-	* Order sequences in the "descending" order:
-		* 16S-ITS from complete genomes
-		* then tRNA-Ala
-		* then reads
-			* A4F
-			* A958R
-			* A1492R
-			* A71R
-	* Browse the alignment to resolve conficts in reads overlapping regions
-	* To raise a confict, you have to search the position in the electrophoregram
-	* To open such file on MacOS, I used [4Peaks v1.8](https://nucleobytes.com/4peaks/index.html). 
-	* I correct errors directly in the alignment
-	* When all errors are resolved, I keep only the 4 reads in the alignment (Select all 16S-ITS + tRNA-Ala ==> Edit/Delete seq.)
-	* I Delete all gap-only sites ==> Edit/Del. gap-only sites
-	* Then, select the 4 reads and ==> Edit/Concensus sequence
-	* I delete the 4 reads, rename the consensus and save the result as Fasta file
+* Open the file `<strain>.complete.msf` in a sequence browser like [Seaview](http://doua.prabi.fr/software/seaview).
+* Order sequences in the "descending" order:
+	* 16S-ITS from complete genomes
+	* then tRNA-Ala
+	* then reads
+		* A4F
+		* A958R
+		* A1492R
+		* A71R
+* Browse the alignment to resolve conficts in reads overlapping regions
+* To raise a confict, you have to search the position in the electrophoregram
+* To open such file on MacOS, I used [4Peaks v1.8](https://nucleobytes.com/4peaks/index.html). 
+* I correct errors directly in the alignment
+* When all errors are resolved, I keep only the 4 reads in the alignment (Select all 16S-ITS + tRNA-Ala ==> Edit/Delete seq.)
+* I Delete all gap-only sites ==> Edit/Del. gap-only sites
+* Then, select the 4 reads and ==> Edit/Concensus sequence
+* I delete the 4 reads, rename the consensus and save the result as Fasta file
 
 
 ### Second batch of strains <a name="batch2"></a>
