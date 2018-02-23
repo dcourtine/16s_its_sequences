@@ -8,6 +8,8 @@ Different assembly where performed. One for each seqeuncing batch.
 3. [Assembly strategies](#assembly)
 	1. [First batch of strains](#batch1)
 	2. [Second batch of strains](#batch2)
+		* [16S_ITS_1 - only 16S](#batch2-1-1)
+		* [16S_ITS_1 - Add ITS](#batch2-1-2)
 
 ## Description of the data used <a name="description"></a>
 ### List of the different sequencing invoices
@@ -219,6 +221,7 @@ for strains sequenced in June 2015.
 Like the primer *A71R* failed for many strains, I first assembly *A4F* and *A1492R* reads together.
 
 #### First plate: 16S_ITS_1
+##### Assemble 16S <a name="batch2-1-1"></a>
 Here, 96 strains are concerned.
 First move to the correct directory and add directory and data:
 ```
@@ -334,6 +337,6 @@ done<failed_strains.txt
 * E15D17
 * E15D24
 
-
+##### Assemble ITS to the 16S <a name="batch2-1-2"></a>
 
 
