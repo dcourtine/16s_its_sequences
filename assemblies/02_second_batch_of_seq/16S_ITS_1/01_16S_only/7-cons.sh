@@ -1,33 +1,40 @@
 #!/bin/bash
 
 ###############################################################################
-#                             PRERECQUIS:                                     #
+#                              PREREQUIS:                                     #
 #                                                                             #
 #     Créer les fichiers "chem" et "chem2" (cf ci-dessous) avant de lancer    #
 #     ce script.                                                              #
 #     Et créer le fichier "liste_keepprimer_corrected.txt" dans               #
 #           ==> All_fasta_aligned/All_keepprimer_corrected/                   #
-#           pour faire ceci: dans le dossier "All_keepprimer_corrected/"      #                                                                             #
+#           pour faire ceci: dans le dossier "All_keepprimer_corrected/"	  #
+#			mv ../*.corrected .                                               #
 #           faire un "ls >liste_keepprimer_corrected.txt                      #
 #           puis dans TextWrangler, supprimer ".fasta.xxx.corrected"          #     
 #           NE PAS OUBLIER DE LAISSER UNE LIGNE VIDE A LA FIN                 #
 #                                                                             #
+#																			  #
+#			!!!! $1 = liste_keepprimer_corrected.txt !!!					  #
 ###############################################################################
 
-
-chem='All_fasta_aligned/All_keepprimer_corrected/'
-chem2='All_fasta_aligned/All_keepprimer_corrected/All_fasta_finished/'	
+chem='All_fasta_aligned/All_keepprimer_corrected'
+chem2='All_fasta_aligned/All_keepprimer_corrected/All_fasta_finished'	
 	
+if [ "$#" -ne 1 ]; then
+	echo "usage: $0 ${chem}/liste_keepprimer_corrected.txt"
+	exit 1
+fi
 
 while read ligne
 do
-      echo "$ligne"
-      nouveauNom="$ligne""_16S-ITS"
-      cons -sequence $chem$ligne.fasta.complete.msf.keepprimer.corrected -outseq $chem2$ligne-16S.fasta -identity 1 -setcase 0.5 -plurality 1 -name $nouveauNom
+	echo "$ligne"
+	nouveauNom="$ligne""_16S"
+	cons -sequence ${chem}/${ligne}.fasta.complete.msf.keepprimer.corrected -outseq ${chem2}/${ligne}-16S.fasta -identity 1 -setcase 0.5 -plurality 1 -name $nouveauNom
 done < $1
 
+
 echo "Recherche de \"N\" dans les nouvelles sequences... (grep insensitive case)"
-for file in $chem2*
+for file in $chem2/*
 do
       grep -H -i "N" $file
 done

@@ -235,7 +235,7 @@ Run the Bash script: `bash 1-1_simplify_name-16S-only.sh`. This script will run 
 2. Compare the 2 Multifasta files to highlight missing reads
 
 Run the Perl script `perl 2-1_compare_2_files-16S-only.pl`, then check the number of strains present in each file:
-`bash ./2-2_copy_file-16S-only.sh`. This script copies `MultiFasta*.final` in `Multifasta*.final.corrected`.
+`bash ./2-2_copy_file-16S-only.sh`. This script copies `MultiFasta*.final` in `MultiFasta*.final.corrected`.
 
 3. Trimming and Reverse Complement
 
@@ -243,7 +243,7 @@ This step is done with 2 Bash/Perl scripts. Simply run `bash 3-1_trimm_and_RC_se
 Modify the *trimming threshold* directly within the Bash script.
 
 The script output warnings for too short reads and output a logfile: `MultiFasta*.final.corrected.trimm<threshold>.log`.
-The logfile points reads whith undetermined nucleotides \(\!\[ATGCatgc\]\).
+The logfile points reads whith undetermined nucleotides \( \!\[ATGCatgc\]\).
 
 **Here, lot of fails for both *A4F* and *A1492R* reads...**
 
@@ -259,4 +259,81 @@ of complete genomes + tRNA-Ala with the 2 reads for each strain.
 Then MUSCLE to align these sequences, with the "help" of full 16S-ITS sequences.
 And the script make a copy of the alignment file: `*.fasta.msf` in `*.fasta.msf.save`.
 
-6. 
+**Important**: Manual check of each alignment to highlight any "N" that can be still present on reads 
+( = that was not removed with the trimming step).
+
+6. Quality check
+
+At this step, the "pipeline" differ from what was done in "batch 1 quality check".
+
+This parts involve 3 scripts:
+1. `6-1-consambig-16S-only.sh`
+2. `6-2-keep-primer-16S-only.pl`
+3. `6-3-clear_consambig-16S-only.pl`
+
+The first is used to runs the 2 Perl scripts. They work as follow: "6-2" take a `msf`file as input
+(ex: `E14D5.fasta.complete.msf`) and output an alignment file in msf format too, but **with only the 2 reads A4F and A1492R**.
+The output file has a `*.keepprimer` extension.
+
+Then the Bash script make a copy of the `*.keepprimer` in `*.keepprimer.corrected`.
+
+Then I use the **consambig** tool from the EMBOSS package. It outputs a file `*.keepprimer.consambig`.
+
+Then bash script runs the Perl script "6-3...". This Perl script use the `*.keepprimer.consambig` as input.
+The output is a fasta file file the consensus sequence `*.keepprimer.consambig.fasta` and an error file `*.keepprimer.consambig.err`.
+This "log" file points beginning & end of the overlapping section (upper case, while non overlapping = lowercase),
+and also points IUPAC characters different than [ATGCatcg].
+**\!\!\!** Files `*.keepprimer.consambig.fasta` are **wrong** fasta
+
+Then run the following lines of code:
+```bash
+mkdir -p All_fasta_aligned/All_keepprimer_corrected/All_fasta_finished
+mv All_fasta_aligned/*.keepprimer.corrected All_fasta_aligned/All_keepprimer_corrected
+cd All_fasta_aligned/All_keepprimer_corrected
+ls | cut -d "." -f 1 >liste_keepprimer_corrected.txt
+#make sure that this file, liste_keepprimer_corrected.txt has a strain ID in the last line
+#tail liste_keepprimer_corrected.txt
+```
+**Important:** manual curation of each alignment, to **resolve** overlapping errors.
+Use the electropherograms to currate alignment!!. Do it with *SeavieW* and *4Peaks*.
+Before closing, `Edit/del. gap-only sites`, and save it.
+
+7. Generate the fasta file
+
+First, come back to the "homedir": `cd ../..`. 
+Use the Bash script `7-cons.sh`, that uses the `cons` tool from the EMBOSS package.
+
+In the script, there is a step with a grep that highlight remaining "N" in the final fasta file.
+It is important to note in a file *strains ID* in a text file and remove all file belonging to this strains 
+and keep in a separated directory the file with their reads: `All_fasta_aligned/<strainID>.fasta`.
+
+Example of script to do it, assuming that strains ID are in the file `failed_strains.txt`:
+```bash 
+#Create the directory
+if [ ! -d "All_fasta_aligned/Failed_sequences" ]; then
+	mkdir All_fasta_aligned/Failed_sequences
+fi
+
+#loop over the file with strain ID
+while read line
+do
+	mv All_fasta_aligned/${line}.fasta All_fasta_aligned/Failed_sequences
+	rm All_fasta_aligned/${line}.fasta.comple*
+	rm All_fasta_aligned/All_fasta_finished/${line}.*
+	rm All_fasta_aligned/All_fasta_finished/All_fasta_finished/${line}-16S.fasta
+done<failed_strains.txt
+```
+
+8. Failed strains for 16S alignment:
+
+* E10P10
+* E10P11
+* E10P13
+* E14D3
+* E14P22
+* E15D17
+* E15D24
+
+
+
+

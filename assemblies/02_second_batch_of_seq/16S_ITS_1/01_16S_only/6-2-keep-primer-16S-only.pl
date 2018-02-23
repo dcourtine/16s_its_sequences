@@ -55,4 +55,4 @@ close IN;
 close OUT;
 
 print "$name\n";  #print le nom de la seq entrain d'être traitée dans la stdout
-                  #pour que le nom de la sequence apparasse dans le prochain script (consambig)
+                  #pour que le nom de la sequence apparaisse dans le prochain script (consambig)
