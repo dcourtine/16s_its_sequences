@@ -6,6 +6,8 @@ Different assembly where performed. One for each seqeuncing batch.
 1. [Description of the data used](#description)
 2. [Primer list](#primer)
 3. [Assembly strategy](#assembly)
+	1. [First batch of strains](#batch1)
+	2. [Second batch of strains](#batch2)
 
 ## Description of the data used <a name="description"></a>
 ### List of the different sequencing invoices
@@ -91,7 +93,7 @@ PATH to data: `data/2015/3_primers_27-07-2015/COL15-1HVS`
 * A71R\_MOD: _5'-TCG GYG CCC GAG CCG AGC CA-3'_
 
 ## Assembly strategy <a name="assembly"></a>
-### First batch of strains
+### First batch of strains <a name="batch1"></a>
 Here I will present the the assembly of the strains sequenced by Nowlven and the my 2 additionnal sequencing runs.
 
 1. For each run, we need the files `MultiFasta_*.seq`.
@@ -188,6 +190,33 @@ To run the script: `bash align.sh`.
 **Please CHECK all dirs & files paths before running the script.**
 The script make a copy of the alignement as `seq_to_align/<strainID>.complete.msf.save`
 
+9. Quality check
+
+For this step, the principle is simple:
+	* Open the file `<strain>.complete.msf` in a sequence browser like [Seaview](http://doua.prabi.fr/software/seaview).
+	* Order sequences in the "descending" order:
+		* 16S-ITS from complete genomes
+		* then tRNA-Ala
+		* then reads
+			* A4F
+			* A958R
+			* A1492R
+			* A71R
+	* Browse the alignment to resolve conficts in reads overlapping regions
+	* To raise a confict, you have to search the position in the electrophoregram
+	* To open such file on MacOS, I used [4Peaks v1.8](https://nucleobytes.com/4peaks/index.html). 
+	* I correct errors directly in the alignment
+	* When all errors are resolved, I keep only the 4 reads in the alignment (Select all 16S-ITS + tRNA-Ala ==> Edit/Delete seq.)
+	* I Delete all gap-only sites ==> Edit/Del. gap-only sites
+	* Then, select the 4 reads and ==> Edit/Concensus sequence
+	* I delete the 4 reads, rename the consensus and save the result as Fasta file
+
+
+### Second batch of strains <a name="batch2"></a>
+In this section, I will describe the assembly process employ to reconstruct 16SrRNA-ITS sequences
+for strains sequenced in June 2015.
+
+Like the primer *A71R* failed for many strains, I first assembly *A4F* and *A1492R* reads together.
 
 
  
