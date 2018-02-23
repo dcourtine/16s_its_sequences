@@ -218,6 +218,7 @@ for strains sequenced in June 2015.
 
 Like the primer *A71R* failed for many strains, I first assembly *A4F* and *A1492R* reads together.
 
+#### First plate: 16S_ITS_1
 
  
 

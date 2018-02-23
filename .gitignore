@@ -14,3 +14,7 @@ assemblies/01_first_batch_of_seq/*MultiFasta*
 assemblies/01_first_batch_of_seq/*MultiFasta*
 assemblies/01_first_batch_of_seq/old_files_deprecated/
 assemblies/01_first_batch_of_seq/seq_to_align/*.*
+
+data/2014/
+data/2015/
+
