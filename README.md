@@ -219,8 +219,44 @@ for strains sequenced in June 2015.
 Like the primer *A71R* failed for many strains, I first assembly *A4F* and *A1492R* reads together.
 
 #### First plate: 16S_ITS_1
+Here, 96 strains are concerned.
+First move to the correct directory and add directory and data:
+```
+cd assemblies/02_second_batch_of_seq/16S_ITS_1/
+mkdir 01_16S_only
+cp ../../../../data/2015/3_primers_23-06-2015_stage_Amaia/16S_ITS_1/COL15-1F0J_TRUE_data/MultiFasta_16S_ITS_1-A1492R.fasta .
+cp ../../../../data/2015/3_primers_23-06-2015_stage_Amaia/16S_ITS_1/COL15-1F0J_TRUE_data/MultiFasta_16S_ITS_1-A4F.fasta .
+```
 
- 
+1. Simplify names
 
+Run the Bash script: `bash 1-1_simplify_name-16S-only.sh`. This script will run the Perl script `1-2_simplify_name-16S-only.pl`.
 
+2. Compare the 2 Multifasta files to highlight missing reads
 
+Run the Perl script `perl 2-1_compare_2_files-16S-only.pl`, then check the number of strains present in each file:
+`bash ./2-2_copy_file-16S-only.sh`. This script copies `MultiFasta*.final` in `Multifasta*.final.corrected`.
+
+3. Trimming and Reverse Complement
+
+This step is done with 2 Bash/Perl scripts. Simply run `bash 3-1_trimm_and_RC_seq-16S-only.sh`.
+Modify the *trimming threshold* directly within the Bash script.
+
+The script output warnings for too short reads and output a logfile: `MultiFasta*.final.corrected.trimm<threshold>.log`.
+The logfile points reads whith undetermined nucleotides \(\!\[ATGCatgc\]\).
+
+**Here, lot of fails for both *A4F* and *A1492R* reads...**
+
+4. Merge reads
+
+Run `Perl 4-create_seq_to_align-16S-only.pl <trimming cutoff>`
+All files will be output in the directory `All_fasta_aligned/`.
+
+5. Align reads
+
+This is done with Muscle (same as above). The script `5-align-16S-only.sh` concatenate 16S-ITS sequences (11)
+of complete genomes + tRNA-Ala with the 2 reads for each strain.
+Then MUSCLE to align these sequences, with the "help" of full 16S-ITS sequences.
+And the script make a copy of the alignment file: `*.fasta.msf` in `*.fasta.msf.save`.
+
+6. 
