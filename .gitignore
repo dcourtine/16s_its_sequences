@@ -16,6 +16,10 @@ assemblies/01_first_batch_of_seq/old_files_deprecated/
 assemblies/01_first_batch_of_seq/seq_to_align/*.*
 assemblies/02_second_batch_of_seq/16S_ITS_1/01_16S_only/All_fasta_aligned
 assemblies/02_second_batch_of_seq/16S_ITS_1/01_16S_only/*MultiFasta*
+assemblies/02_second_batch_of_seq/16S_ITS_1/02_16S_ITS/16S_ITS_1-16Sonly.fasta
+assemblies/02_second_batch_of_seq/16S_ITS_1/02_16S_ITS/*MultiFasta*
+assemblies/02_second_batch_of_seq/16S_ITS_1/02_16S_ITS/All_fasta_aligned
+
 
 data/2014/
 data/2015/

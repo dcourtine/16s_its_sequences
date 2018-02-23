@@ -8,8 +8,10 @@ Different assembly where performed. One for each seqeuncing batch.
 3. [Assembly strategies](#assembly)
 	1. [First batch of strains](#batch1)
 	2. [Second batch of strains](#batch2)
-		* [16S_ITS_1 - only 16S](#batch2-1-1)
-		* [16S_ITS_1 - Add ITS](#batch2-1-2)
+		1. [16S_ITS_1 - only 16S](#batch2-1-1)
+		2. [16S_ITS_1 - Add ITS](#batch2-1-2)
+		3. [16S_ITS_2](#batch2-2)
+		4. [16S_ITS_3](#batch2-3)
 
 ## Description of the data used <a name="description"></a>
 ### List of the different sequencing invoices
@@ -339,4 +341,62 @@ done<failed_strains.txt
 
 ##### Assemble ITS to the 16S <a name="batch2-1-2"></a>
 
+In this section, I will merge 16S sequence and its corresponding ITS.
+Come back to the root of this project, then `cd assemblies/02_second_batch_of_seq/16S_ITS_1/02_16S_ITS`.
+
+Sequences of *A71R* primers comme from June and July 2015: `COL15-1HME`==> 8 sequences; `COL15-1HVS` ==> 88 reads.
+Concatenate all good reads in `MultiFasta_COL15-1HME_AND_COL15-1HVS.seq`.
+
+Run:
+```bash
+perl 0_split_mother_file.pl MultiFasta_COL15-1HME_AND_COL15-1HVS.seq
+bash 1-1_simplify_name.sh
+bash 2-2_copy_file.sh
+bash 3-1_trimm_and_RC_seq.sh
+cat ../01_16S_only/All_fasta_aligned/All_keepprimer_corrected/All_fasta_finished/*-16S.fasta >16S_ITS_1-16Sonly.fasta
+mkdir All_fasta_aligned
+perl 4-create_seq_to_align.pl <trimming cutoff> 16S_ITS_1-16Sonly.fasta
+bash 5-align.sh
+bash 6-1-consambig.sh
+mkdir All_fasta_aligned/All_keepprimer_corrected
+mv All_fasta_aligned/*.corrected All_fasta_aligned/All_keepprimer_corrected/
+```
+Then browse all alignment in `All_fasta_aligned/All_keepprimer_corrected/*.corrected` to resolve overlapping conflicts.
+Use the `All_fasta_aligned/*.err` as a guide and also eletropherograms.
+In Seaview, `Edit/del. gap-only sites` and save the alignment.
+
+Then:
+```bash
+cd All_fasta_aligned/All_keepprimer_corrected
+ls | cut -d "." -f 1 >liste_keepprimer_corrected.txt
+#make sure that this file, liste_keepprimer_corrected.txt has a strain ID in the last line
+#tail liste_keepprimer_corrected.txt
+cd ../..
+bash 7-cons.sh
+```
+
+Then establish a list of failed strains.
+```bash
+if [ ! -d "All_fasta_aligned/Failed_sequences" ]; then
+	mkdir All_fasta_aligned/Failed_sequences
+fi
+#loop over the file with strain ID
+while read line
+do
+	mv All_fasta_aligned/${line}.fasta All_fasta_aligned/Failed_sequences
+	rm All_fasta_aligned/${line}.fasta.comple*
+	rm All_fasta_aligned/All_keepprimer_corrected/${line}.*
+	rm All_fasta_aligned/All_keepprimer_corrected/All_fasta_finished/${line}-*.fasta
+done<failed_strains.txt
+```
+
+**For the "failed" runs, do it one by one for each strain.**
+
+#### Second plate: 16S_ITS_2 <a name="batch2-2"></a>
+
+Data are available in the directory...
+Scripts are present in ...
+
+
+#### Third plate: 16S_ITS_3 <a name="batch2-3"></a>
 
