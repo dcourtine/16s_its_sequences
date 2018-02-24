@@ -82,7 +82,7 @@ Number of re-sequencing for each primer and plate:
 Plate | A4F\_Thermocc | A1492R | A71R\_MOD |
 ------|:-------------:|:------:|:---------:|
 16S\_ITS\_1 | 7 | 7 | 88 |
-16S\_ITS\_3 | 6 | 3 | 96 |
+16S\_ITS\_2 | 6 | 3 | 96 |
 A6S\_ITS\_3 | \- | \- | 25 |
 
 PATH to data: `data/2015/3_primers_27-07-2015/COL15-1HVS`
@@ -345,6 +345,10 @@ In this section, I will merge 16S sequence and its corresponding ITS.
 Come back to the root of this project, then `cd assemblies/02_second_batch_of_seq/16S_ITS_1/02_16S_ITS`.
 
 Sequences of *A71R* primers comme from June and July 2015: `COL15-1HME`==> 8 sequences; `COL15-1HVS` ==> 88 reads.
+Respectivelly present in `data/2015/3_primers_27-07-2015/test-primer-A71R-modifiee/COL15-1HME`
+(for strains *E12D9, E12D10, E12D13, E13P1, E13P2, E13P3, E13P4 and E13P5*) 
+and  `data/2015/3_primers_27-07-2015/COL15-1HVS/16S_ITS_1_A71R2` for the 88 other strains.
+
 Concatenate all good reads in `MultiFasta_COL15-1HME_AND_COL15-1HVS.seq`.
 
 Run:
@@ -392,11 +396,33 @@ done<failed_strains.txt
 
 **For the "failed" runs, do it one by one for each strain.**
 
+##### Failed strains
+Concerning failed strains, resequencing were done 
+
+
 #### Second plate: 16S_ITS_2 <a name="batch2-2"></a>
 
-Data are available in the directory...
+Data are present in 5 directories:
+* `data/2015/3_primers_23-06-2015_stage_Amaia/16S_ITS_2/COL15-1F0E/16S_ITS_2_A1492` : **A1492R**
+* `data/2015/3_primers_27-07-2015/COL15-1HVS/16S_ITS_2_14922` : **A1492R**, resequencing of failed strains
+* `data/2015/3_primers_23-06-2015_stage_Amaia/16S_ITS_2/COL15-1F0E/16S_ITS_2_A4F` : **A4F**
+* `data/2015/3_primers_27-07-2015/COL15-1HVS/16S_ITS_2_A4F2` : **A4F_Thermocc**, resequencing of failed strains
+* `data/2015/3_primers_27-07-2015/COL15-1HVS/16S_ITS_2_A71R2` : **A71R_MOD**
+
 Scripts are present in ...
 
 
 #### Third plate: 16S_ITS_3 <a name="batch2-3"></a>
+
+Data are present in 3 directories:
+* `data/2015/3_primers_23-06-2015_stage_Amaia/16S_ITS_3/COL15-1F0R/16S_ITS_3_A4F` : **A4F** 
+* `data/2015/3_primers_23-06-2015_stage_Amaia/16S_ITS_3/COL15-1F0R/16S_ITS_3_A1492` : **A1492R**
+* `data/2015/3_primers_27-07-2015/COL15-1HVS/16S_ITS_3_A71R2` : **A71R_MOD**, 25 over 27 strains.
+
+Here, for **A4F** and **A1492R**, discard reads `T-BAROSSII100` and `IRI51A`.
+The first because there is another read called `T-BAROSSII10` that is exatly the same.
+They were amplified by PCR from a 1/10 an 1/100 dillution of the DNA matrix.
+The second, `IRI51A` failed during PCR amplification.
+
+
 
