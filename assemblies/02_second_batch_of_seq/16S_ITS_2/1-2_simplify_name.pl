@@ -3,17 +3,6 @@
 use strict;
 use warnings;
 
-##
-## input Fasta file with following description line for example:
-## >AMTC57_A4F_52 status=ok nucl=1068 crlStart=11 crlStop=856 crlLen=846 order=COL15-1F0E
-## 
-## The Output description line will be: ">AMTC57_A4F"
-##
-if (@ARGV != 1){
-      print"Please, give an infile in the command line\n";
-      die
-}
-
 open(F1, "$ARGV[0]") or die "erreur $!";
 open (OUT, ">simplify.$ARGV[0]") or die "erreur $!";
 

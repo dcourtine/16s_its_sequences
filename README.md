@@ -167,9 +167,9 @@ RC has to be applied only on *A1492R*, *A958R* and *A71R* reads.
 
 This step is done with a Perl and a Bash script.
 First, the script `trimm_and_RC_seq.sh` take `*.seq.final` and trim each sequences between 2 positions.
-To modify these positions, just do it in the `trimm_and_RC_seq` script.
+To modify these positions, just do it in the `trimm_and_RC_seq.sh` script.
 The output is a new fasta file with a `trimm<upper_threshold>` extention.
-After, the script **reverse and completent** all reads present in `R.seq.final.trimm<upper_threshold>`
+After, the script **reverse and completent** all reads present in `*R.seq.final.trimm<upper_threshold>`
 
 **Note:** This step is done with `revseq`, a tool from the [EMBOSS:6.5.7.0 package](http://emboss.sourceforge.net/).
 
@@ -409,8 +409,20 @@ Data are present in 5 directories:
 * `data/2015/3_primers_27-07-2015/COL15-1HVS/16S_ITS_2_A4F2` : **A4F_Thermocc**, resequencing of failed strains
 * `data/2015/3_primers_27-07-2015/COL15-1HVS/16S_ITS_2_A71R2` : **A71R_MOD**
 
-Scripts are present in ...
+**Here the pipeline used is the same as for the first batch of sequences**, available [here](#batch1).
+Scripts are present in `cd assemblies/02_second_batch_of_seq/16S_ITS_2`.
+First, `cat ../../../<ABOVE-PATHS>/*.seq >MultiFasta-A71R.fasta`.
+Then, `bash 1-1_simplify_name.sh`. Then `perl 2-1_compare_3_files.pl` ==> **here be carrefull of infiles names!**,
+modify lines \#83, 113, 129, 160, 172, 204, 228 and 260 within the script.
+Then trim all reads and reverse-complement `*R.fasta.final.trimm<threshold>` reads, with the script `3-1_trimm_and_RC_seq.sh`. 
+By default, the scrip trims positions 0..25 and 800..END. Change thresholds directly within the Bash script.
 
+Then `mkdir All_fasta_aligned/`, and `perl 4-create_seq_to_align.pl <threshold>`.
+Then last script to launch is `bash 5-align.sh`.
+
+Finish with a manual curation of alignments.
+Eletropherograms are present in the same dir as data (*cf* some line above for paths).
+And **follow** [first batch of strains, point 9](#batch1)
 
 #### Third plate: 16S_ITS_3 <a name="batch2-3"></a>
 
@@ -423,6 +435,15 @@ Here, for **A4F** and **A1492R**, discard reads `T-BAROSSII100` and `IRI51A`.
 The first because there is another read called `T-BAROSSII10` that is exatly the same.
 They were amplified by PCR from a 1/10 an 1/100 dillution of the DNA matrix.
 The second, `IRI51A` failed during PCR amplification.
+
+For assembly, follow same instructions as [16S_ITS_2](#batch2-2).
+The working directory is `assemblies/02_second_batch_of_seq/16S_ITS_3`.
+So 
+```bash
+cd assemblies/02_second_batch_of_seq/16S_ITS_3`
+cp ../16_ITS_2/*.?? .
+```
+And let's go!
 
 
 

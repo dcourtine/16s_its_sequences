@@ -35,7 +35,7 @@ my %A71R;
 
 my $seq="";
 my $nom="";
-open(IN1, "MultiFasta_A4F.seq.final.corrected.trimm$ARGV[0]") or die "erreur $!";
+open(IN1, "MultiFasta-A4F.fasta.final.trimm$ARGV[0]") or die "erreur $!";
 while(<IN1>){
       chomp;
             if (substr ($_, 0,1) eq ">") {
@@ -55,7 +55,7 @@ close IN1;
 ##################################################
 # $seq="";
 # $nom="";
-# open(IN3, "MultiFasta_A958R.seq.final.corrected.trimm$ARGV[0].RC") or die "erreur $!";
+# open(IN3, "MultiFasta-A958R.fasta.final.trimm$ARGV[0].RC") or die "erreur $!";
 # while(<IN3>){
 #       chomp;
 #             if (substr ($_, 0,1) eq ">") {
@@ -75,7 +75,7 @@ close IN1;
 #############################################
 $seq="";
 $nom="";
-open(IN4, "MultiFasta_A1492R.seq.final.corrected.trimm$ARGV[0].RC") or die "erreur $!";
+open(IN4, "MultiFasta-A1492R.fasta.final.trimm$ARGV[0].RC") or die "erreur $!";
 while(<IN4>){
       chomp;
             if (substr ($_, 0,1) eq ">") {
@@ -95,7 +95,7 @@ close IN4;
 #############################################
 $seq="";
 $nom="";
-open(IN5, "MultiFasta_A71R.seq.final.corrected.trimm$ARGV[0].RC") or die "erreur $!";
+open(IN5, "MultiFasta-A71R.fasta.final.trimm$ARGV[0].RC") or die "erreur $!";
 while(<IN5>){
       chomp;
             if (substr ($_, 0,1) eq ">") {
@@ -116,20 +116,21 @@ close IN5;
 #####################################################################################
 
 foreach my $k(sort {$a cmp $b} keys(%A4F)){
-      #print"$k\n$A4F{$k}\n";
-      my $new_name=$k.".fasta";     #nom du futur fichier
-      $new_name=~s/>//;             #enlève le chevron dans le nom du fichier
+#Here, any problem of AMTc10 matching AMTc101, beacause there is no REGEX!!
+#only key matching
+	my $new_name=$k.".fasta";     #nom du futur fichier
+    $new_name=~s/>//;             #enlève le chevron dans le nom du fichier
       
-      open(OUT, ">All_fasta_aligned/$new_name") or die "erreur $!";
-            my $A4=$k."_A4F";
-            print OUT "$A4\n$A4F{$k}\n";
-      
-            my $A1492=$k."_A1492R";     
-            print OUT "$A1492\n$A1492R{$k}\n";
-            
-            my $A71=$k."_A71R";     
-            print OUT "$A71\n$A71R{$k}\n";
-      close OUT
+    open(OUT, ">All_fasta_aligned/$new_name") or die "erreur $!";
+	my $A4=$k."_A4F";
+	print OUT "$A4\n$A4F{$k}\n";
+	
+	my $A1492=$k."_A1492R";     
+	print OUT "$A1492\n$A1492R{$k}\n";
+	
+	my $A71=$k."_A71R";     
+	print OUT "$A71\n$A71R{$k}\n";
+	close OUT
 }
 
 
