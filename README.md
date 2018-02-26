@@ -448,7 +448,7 @@ cp ../16_ITS_2/*.?? .
 ```
 And let's go!
 
-##Add metadata to defline <a name="defline"></a>
+## Add metadata to defline <a name="defline"></a>
 
 In this section, I will add metadata about strains within their defline.
 
@@ -470,14 +470,14 @@ This script reads the Fasta `souchotheque-16S_ITS-new-deflines.fasta`, extract G
 and output a 3-columns table `souchotheque_gps_coordinates.csv` where GPS coordinates are given in Decimal Degrees
 (Lat: -90..90; Lon: -180..180). The **aim** of this file is to be used to plot these positions on a map (using *R*).
 
-##Plot strains origin on map <a name="printOnMap"></a>
+## Plot strains origin on map <a name="printOnMap"></a>
 
 In this part will be present scripts used to obtain a global overview of the strains geographic origin.
 
 Go to: `cd plot_strains_on_map` and execute the R script `plot_coord_on_map.r`.
 With RStudio it is easier, uncomment the line `#print(map)` gives you a preview of your work before printing the map in a file.
 
-##Phylogenetic tree <a name="phyloTree"></a>
+## Phylogenetic tree <a name="phyloTree"></a>
 
 In this section, we will build a phylogenetic tree with the concatenation of 16S rRNA and ITS sequences. 
 
@@ -489,7 +489,7 @@ To be continued...
 ==> with SINA, 'bases remaining unaligned at the ends should be **moved to the edge of the alignment**;
 Align ITS with MUSCLE or CLUSTALW; merge both alignments; build the tree with phyml/bayes/nj;
 
-In ARB: First, modify deflines ==> strain_id:origin:site:accession:name(=ARB id) 
+In ARB: First, modify deflines ==> strain\_id:origin:site:accession:name(=ARB id) 
 
 E10P12:Mid-atlantic-ridge:Menez-Gwen:NA:spec100
 
