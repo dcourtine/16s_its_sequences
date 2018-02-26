@@ -457,6 +457,10 @@ From the file `UBOCC_v4.xls`, I selected fields that look interesting. Here is t
 I take care of renaming strains properly according to their 16SrRNA-ITS sequence name. 
 
 First, concatenate all 16S-ITS sequences from the 2 batchs of strains in a single file in this directory.
+The name of this file must be `souchotheque-16S_ITS.fasta`.
+Then, `perl add_defline_to_seq-V3.pl`, this script reads two `.csv` files of metadata and output two files:
+* `complete_defline_Thermococale_culture_collection.txt`
+* `souchotheque-16S_ITS-new-deflines.fasta`
 
 
 
