@@ -485,7 +485,7 @@ From the root of this repository, `mkdir phylogenetic_tree && cd phylogenetic_tr
 
 To be continued\.\.\.
 
-*the main ideas: Align 16S rRNA with [SINA](https://www.arb-silva.de/aligner/); cut the ITS from this alignment.
+The main ideas: *Align 16S rRNA with [SINA](https://www.arb-silva.de/aligner/); cut the ITS from this alignment.
 ==> with SINA, 'bases remaining unaligned at the ends should be **moved to the edge of the alignment**;
 Align ITS with MUSCLE or CLUSTALW; merge both alignments; build the tree with phyml/bayes/nj;
 
