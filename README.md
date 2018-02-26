@@ -487,13 +487,13 @@ To be continued\.\.\.
 
 The main ideas: *Align 16S rRNA with [SINA](https://www.arb-silva.de/aligner/); cut the ITS from this alignment.
 ==> with SINA, 'bases remaining unaligned at the ends should be **moved to the edge of the alignment**;
-Align ITS with MUSCLE or CLUSTALW; merge both alignments; build the tree with phyml/bayes/nj;
+Align ITS with MUSCLE or CLUSTALW; merge both alignments; build the tree with phyml/bayes/nj .*
 
-In ARB: First, modify deflines ==> `strain_id:origin:site:accession:name(=ARB id)`
+*In ARB: First, modify deflines ==> `strain_id:origin:site:accession:name(=ARB id)`*
 
-E10P12:Mid-atlantic-ridge:Menez-Gwen:NA:spec100
+*Ex: `E10P12:Mid-atlantic-ridge:Menez-Gwen:NA:spec100`.*
 
-See '16S-ITS.ift' to import in ARB and 'damien3.eft' to export them with only the ARB id (aka 'name').*
+*See '16S-ITS.ift' to import in ARB and 'damien3.eft' to export them with only the ARB id (aka 'name').*
 
 
 
