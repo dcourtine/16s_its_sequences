@@ -20,7 +20,10 @@ assemblies/02_second_batch_of_seq/16S_ITS_1/02_16S_ITS/16S_ITS_1-16Sonly.fasta
 assemblies/02_second_batch_of_seq/16S_ITS_1/02_16S_ITS/*MultiFasta*
 assemblies/02_second_batch_of_seq/16S_ITS_1/02_16S_ITS/All_fasta_aligned
 
-
 data/2014/
 data/2015/
+
+defline/*.fasta
+defline/READ_THIS_FFFCKING_FILE.txt
+defline/*.csv
 

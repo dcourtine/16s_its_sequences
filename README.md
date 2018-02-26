@@ -12,6 +12,7 @@ Different assembly where performed. One for each seqeuncing batch.
 		2. [16S_ITS_1 - Add ITS](#batch2-1-2)
 		3. [16S_ITS_2](#batch2-2)
 		4. [16S_ITS_3](#batch2-3)
+4. [Add metadata to defline](#defline)
 
 ## Description of the data used <a name="description"></a>
 ### List of the different sequencing invoices
@@ -207,7 +208,7 @@ For this step, the principle is simple:
 		* A1492R
 		* A71R
 * Browse the alignment to resolve conficts in reads overlapping regions
-* To raise a confict, you have to search the position in the electrophoregram
+* To raise a confict, you have to search the position in the electropherogram
 * To open such file on MacOS, I used [4Peaks v1.8](https://nucleobytes.com/4peaks/index.html). 
 * I correct errors directly in the alignment
 * When all errors are resolved, I keep only the 4 reads in the alignment (Select all 16S-ITS + tRNA-Ala ==> Edit/Delete seq.)
@@ -444,6 +445,21 @@ cd assemblies/02_second_batch_of_seq/16S_ITS_3`
 cp ../16_ITS_2/*.?? .
 ```
 And let's go!
+
+##Add metadata to defline <a name="defline"></a>
+In this section, I will add metadata about strains within their defline.
+
+All steps will be performed in `cd defline/` (from the root of the current repository) 
+From the file `UBOCC_v4.xls`, I selected fields that look interesting. Here is the list of fields:
+
+`Strain_name|origin_geographic_area|origin_locality|origin_habitat|origin_sample_date|temperature|ph|salinity|salinity_unit|latitude|longitude|depth|`
+
+I take care of renaming strains properly according to their 16SrRNA-ITS sequence name. 
+
+First, concatenate all 16S-ITS sequences from the 2 batchs of strains in a single file in this directory.
+
+
+
 
 
 
