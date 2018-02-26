@@ -28,3 +28,7 @@ defline/*.fasta
 defline/*.txt
 defline/*.csv
 
+phylogenetic_tree/*.fasta
+
+
+

@@ -483,6 +483,12 @@ In this section, we will build a phylogenetic tree with the concatenation of 16S
 
 From the root of this repository, `mkdir phylogenetic_tree && cd phylogenetic_tree`.
 
+Then, `perl remodel_deflines.pl ../defline/souchotheque-16S_ITS-new-deflines.fasta`.
+This scripts takes as input the file with "a lot of" metadata and outputs a fasta file,
+`souchotheque-16S_ITS-new-deflines-ARB-defline.fasta` with the following defline:
+`>strain:geographic_location:hydrothermal_site:accession:arb_name`. The **arb\_name** is important.
+It will be use for exporting data/ importing trees in ARB...
+
 To be continued\.\.\.
 
 The main ideas: *Align 16S rRNA with [SINA](https://www.arb-silva.de/aligner/); cut the ITS from this alignment.
@@ -494,6 +500,7 @@ Align ITS with MUSCLE or CLUSTALW; merge both alignments; build the tree with ph
 *Ex: `E10P12:Mid-atlantic-ridge:Menez-Gwen:NA:spec100`.*
 
 *See '16S-ITS.ift' to import in ARB and 'damien3.eft' to export them with only the ARB id (aka 'name').*
+
 
 
 
