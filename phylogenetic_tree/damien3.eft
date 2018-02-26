@@ -1,0 +1,4 @@
+SUFFIX          fasta
+BEGIN
+>*(full_name)	*(name)
+*(|export_sequence)

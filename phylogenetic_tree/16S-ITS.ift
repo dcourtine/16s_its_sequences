@@ -1,0 +1,43 @@
+# HM May 2009
+#
+# Imports aligned sequences in FASTA-format to ARB.
+#
+# The first attribute in the FASTA header is written to DB field 'name' and
+# the rest to both the fields 'longname' and 'acc'
+
+AUTODETECT      ">*"
+
+KEYWIDTH        1
+
+BEGIN           ">*"
+
+MATCH           ">*"
+                SRT "*\:*\:*\:*\:*=*1"
+                WRITE "full_name"
+
+MATCH           ">*"
+                SRT "*\:*\:*\:*\:*=*5"
+                WRITE "name"
+
+MATCH           ">*"
+                SRT "*\:*\:*\:*\:*=*4"
+                WRITE "acc"
+
+MATCH           ">*"
+                SRT "*\:*\:*\:*\:*=*2"
+                WRITE "remark"
+
+MATCH           ">*"
+                SRT "*\:*\:*\:*\:*=*3"
+                WRITE "remark2"
+
+SEQUENCEAFTER   "*"
+SEQUENCESRT     ""
+SEQUENCEACI     "remove("0123456789 /")"
+SEQUENCECOLUMN  0
+SEQUENCEEND     ">*"
+
+DONT_GEN_NAMES
+# CREATE_ACC_FROM_SEQUENCE
+
+END             "//"

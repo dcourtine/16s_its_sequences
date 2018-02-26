@@ -21,17 +21,30 @@ while(<IN>){
 	if(substr($_, 0, 1) eq ">"){
 		my @t = split('\|', $_);
 		$defline = $t[0];
+		# geography
 		if(defined $t[1]){
-			$defline = $defline.":$t[1]";
+			if($t[1] ne ""){
+				$defline = $defline.":$t[1]";
+			}
+			else{
+				$defline = $defline.":NA";
+			}
 		}
-		else{$defline = $defline.":NA";}
-
+		else{
+			$defline = $defline.":NA";
+		}
+		#hydrothermal site
 		if(defined $t[2]){
-			$defline = $defline.":$t[2]";
-			$defline =~s/°/'/g;
+			if($t[2] ne ""){
+				$defline = $defline.":$t[2]";
+				$defline =~s/°/'/g;
+			}
+			else{
+				$defline = $defline.":NA";
+			}
 		}
 		else{$defline = $defline.":NA";}
-		
+		# arb id
 		$defline = $defline.":NA:spec$specCount";
 		$specCount++;
 		print OUT "$defline\n";
