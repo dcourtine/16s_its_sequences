@@ -24,6 +24,6 @@ data/2014/
 data/2015/
 
 defline/*.fasta
-defline/READ_THIS_FFFCKING_FILE.txt
+defline/*.txt
 defline/*.csv
 
