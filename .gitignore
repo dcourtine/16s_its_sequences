@@ -30,7 +30,7 @@ defline/*.csv
 
 phylogenetic_tree/*.fasta
 phylogenetic_tree/export_from_arb/*.fasta
-phylogenetic_tree/arb-database/*
+phylogenetic_tree/arb-database
 phylogenetic_tree/alignments
 
 
