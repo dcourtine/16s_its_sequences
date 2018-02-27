@@ -1,4 +1,4 @@
 SUFFIX          fasta
 BEGIN
->*(full_name)	*(name)
+>*(name)
 *(|export_sequence)

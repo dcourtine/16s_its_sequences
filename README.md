@@ -489,16 +489,32 @@ This scripts takes as input the file with "a lot of" metadata and outputs a fast
 `>strain:geographic_location:hydrothermal_site:accession:arb_name`. The **arb\_name** is important.
 It will be use for exporting data/ importing trees in ARB...
 
+Concatenate all sequences that you want to import in ARB, *ie.*, sequences from UBOCC, reference genomes and outgroup.
+Here the outgroup is composed of 3 sequences of *Methanocaldococcus*, see in `data/outgroup_16S-ITS_tree/` directory.
+
 Then launch [ARB](#arb-silva.de/) `arb`, `CREATE AND IMPORT`, select `soucho*-ARB-defline.fasta` and use `16S-ITS.ift` to import data.
 Before launching ARB, `cp 16s-ITS.ift $ARBHOME/lib/import`. This step may require a `sudo`.
 
 Then `Tree / NDS` and choose what you want to display. Import sequences from published and full genomes.
 `File / Import / From extrnal format`, then select `../data/16S-ITS_published_thermococcales.fasta` and `16S-ITS.ift`.
+**Be carreful, the import format add an extra entry in the database, here \* spec376.**
+This weird entry must be removed from the database `Species / Delete marked species`.
+
 Finish by saving as an ARBdatabase in `arb-database`.
 
-Export: `Export / to an external Format `, choose "all" and `damien3.eft` as format.
-Like the *ift*, `cp damien3.eft $ARBHOME/lib/export/`.
+Export: `Export / to an external Format `, choose "compress all gaps" and `damien3.eft` as format.
+Like the *ift*, `cp damien3.eft $ARBHOME/lib/export/`. 
 Export the fasta file in `mkdir export_from_arb`, as `all_seq_16S_ITS_ARB_exported.fasta`.
+
+Then, align sequences with [SINA](#https://www.arb-silva.de/aligner/) and download results \(+log file\).
+As parameters, use "Bases not aligned: moved to the end of the alignment" & set the variability profile 
+as "*archaea*" within the "advanced parameters".
+
+`mkdir alignments && cd alignments` and move SINA results in this new directory.
+Make a copy of the alignment, `cp arb-silva.de_*.fasta ITS_not_align.fasta`.
+The idea here is to remove the 16S sequences and keep only the sequence corresponding to the ITS.
+`cp ITS_not_align.fasta ITS_align.fasta`.
+
 
 To be continued\.\.\.
 
